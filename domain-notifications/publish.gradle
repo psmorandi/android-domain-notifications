@@ -1,7 +1,7 @@
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
-version '1.0.0'
+version '1.0.1'
 group 'com.psmorandi'
 
 publishing {
@@ -43,8 +43,8 @@ bintray {
     // Default: false. Whether version should be auto published after an upload
     publish = true
     pkg {
-        repo = 'android-domain-notifications' // the name of the repository you created on Bintray
-        name = 'com.psmorandi.android.notifications' // the name of the package you created inside it
+        repo = 'android-domain-notifications'
+        name = 'com.psmorandi.android.notifications'
         version {
             name = this.version
             released = new Date()
