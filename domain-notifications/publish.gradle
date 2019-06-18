@@ -1,9 +1,8 @@
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
+apply from: 'constants.gradle'
 
-version '1.0.2'
-group 'com.psmorandi'
 
 // custom tasks for creating source/javadoc jars
 task sourcesJar(type: Jar) {
@@ -36,9 +35,9 @@ publishing {
             artifact sourcesJar 
             artifact javadocJar
 
-            groupId this.group
-            artifactId 'domain-notifications'
-            version this.version
+            groupId mavenGroup
+            artifactId mavenArtifactId
+            version mavenVersion
 
             pom.withXml {
                 def dependenciesNode = asNode().appendNode('dependencies')
@@ -71,12 +70,12 @@ bintray {
     // Default: false. Whether version should be auto published after an upload
     publish = true
     pkg {
-        repo = 'android-domain-notifications'
-        name = 'com.psmorandi.android.notifications'
+        repo = bintrayRepo
+        name = bintrayPackageName
         version {
-            name = this.version
+            name = mavenVersion
             released = new Date()
-            vcsTag = this.version
+            vcsTag = mavenVersion
         }
     }
 }
