@@ -1,5 +1,5 @@
 ext {
-    mavenVersion = '1.0.3'
+    mavenVersion = '1.0.4'
     mavenGroup = 'com.psmorandi'
     mavenArtifactId = 'domain-notifications'
 
