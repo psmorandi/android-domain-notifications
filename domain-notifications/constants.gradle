@@ -1,8 +1,0 @@
-ext {
-    mavenVersion = '1.0.4'
-    mavenGroup = 'com.psmorandi'
-    mavenArtifactId = 'domain-notifications'
-
-    bintrayRepo = 'android-domain-notifications'
-    bintrayPackageName = 'com.psmorandi.android.notifications'
-}
