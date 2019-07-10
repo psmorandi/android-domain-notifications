@@ -19,5 +19,9 @@ class ExecutionResult {
         this.response.addNotificationMessage(notification)
     }
 
+    fun addMessages(notifications: List<Notification>) {
+        this.response.addNotifications(notifications)
+    }
+
     override fun toString() = this.response.toString()
 }
