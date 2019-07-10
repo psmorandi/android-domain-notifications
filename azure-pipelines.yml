@@ -4,13 +4,20 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/android
 
 trigger:
-- master
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - README.md
+    - azure-pipelines.yml
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
 - task: Gradle@2
+  displayName: 'Build and Test'
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
@@ -18,3 +25,11 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleRelease test'
+
+- task: Gradle@2
+  displayName: 'Publish'
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    tasks: 'bintrayPublish'
