@@ -27,9 +27,9 @@ steps:
     tasks: 'assembleRelease test'
 
 - task: Gradle@2
-  displayName: 'Publish'
+  displayName: 'Publish to Bintray'
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
-    tasks: 'bintrayPublish'
+    tasks: 'bintrayUpload'
