@@ -22,7 +22,7 @@ Then add the dependency:
 
 ```
 dependencies {    
-    implementation 'com.psmorandi:domain-notifications:1.0.6'
+    implementation 'com.psmorandi:domain-notifications:1.0.7'
 }
 ```
 
