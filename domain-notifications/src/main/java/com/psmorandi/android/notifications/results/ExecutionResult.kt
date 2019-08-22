@@ -5,7 +5,7 @@ import com.psmorandi.android.notifications.Notification
 /**
  * Class that represents if the execution result was successful or not without caring about the value returned from the execution.
  */
-class ExecutionResult {
+open class ExecutionResult {
     private val response = Response("")
 
     fun success() = !this.response.hasMessages()

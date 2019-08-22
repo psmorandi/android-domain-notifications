@@ -38,14 +38,13 @@ class ExecutionResultUnitTests {
     }
 
     @Test
-    fun process_with_error_result_with_notifications() {
-        val bll = SomeBusinessClass()
+    fun test_for_inheritance() {
+        val inheritanceTestClass = InheritanceTestClass()
 
-        val result = bll.doSomeProcessAfterResponseReceivedWithErrorReturn()
+        inheritanceTestClass.demonstrate()
 
-        Assert.assertFalse(result.success())
-        Assert.assertTrue(result.messages().isNotEmpty())
-        Assert.assertTrue(result.messages().size > 1)
+        Assert.assertFalse(inheritanceTestClass.success())
+        Assert.assertTrue(inheritanceTestClass.messages().isNotEmpty())
     }
 
     class SomeBusinessClass {
@@ -73,27 +72,11 @@ class ExecutionResultUnitTests {
 
             return result
         }
+    }
 
-        fun doSomeProcessAfterResponseReceivedWithErrorReturn(): ExecutionResult {
-            val result = ExecutionResult()
-
-            val response = callSomethingThatReturnsResponse()
-
-            if (response.hasMessages()) {
-                result.addMessages(response.messages())
-            }
-
-            return result
-        }
-
-        private fun callSomethingThatReturnsResponse(): Response<String> {
-            val response = Response<String>()
-
-            response.addNotification("parameter", "error description")
-            response.addNotification("parameter2", "another error description")
-            response.addNotification("parameter3", "yet another error description")
-
-            return response
+    class InheritanceTestClass : ExecutionResult() {
+        fun demonstrate() {
+            this.addMessage("test", "Some random text")
         }
     }
 }

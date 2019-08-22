@@ -6,7 +6,7 @@ import com.psmorandi.android.notifications.Notification
 /**
  * A class to return the value after a process in business layer or validation messages about what went wrong.
  */
-class Response<T : Any?> : Notifiable {
+open class Response<T : Any?> : Notifiable {
 
     private var value: T? = null
 

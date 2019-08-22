@@ -85,5 +85,21 @@ class ResponseUnitTests {
         Assert.assertFalse(response.invalid())
     }
 
+    @Test
+    fun test_for_inheritance() {
+        val inheritanceTestClass = InheritanceTestClass<Customer>()
+
+        inheritanceTestClass.demonstrate()
+
+        Assert.assertTrue(inheritanceTestClass.invalid())
+        Assert.assertTrue(inheritanceTestClass.messages().isNotEmpty())
+    }
+
     private data class Customer(val firstName: String, val lastName: String)
+
+    class InheritanceTestClass<Customer> : Response<Customer>() {
+        fun demonstrate() {
+            this.addNotification("test", "Some random text")
+        }
+    }
 }
