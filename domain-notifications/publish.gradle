@@ -2,7 +2,7 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
-version '1.0.6'
+version '1.0.7'
 group 'com.psmorandi'
 
 // custom tasks for creating source/javadoc jars
