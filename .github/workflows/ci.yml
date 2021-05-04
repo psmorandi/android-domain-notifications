@@ -34,7 +34,7 @@ jobs:
         ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
         ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.PGP_KEY }}
         ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.PGP_KEY_ID }}
-        ORG_GRADLE_PROJECT_signingInMemoryPassword: ${{ secrets.PGP_KEY_PWD }}
+        ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.PGP_KEY_PWD }}
       run: ./gradlew publish --no-daemon --no-parallel
       
     - name: Release library
@@ -43,5 +43,5 @@ jobs:
         ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
         ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.PGP_KEY }}
         ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.PGP_KEY_ID }}
-        ORG_GRADLE_PROJECT_signingInMemoryPassword: ${{ secrets.PGP_KEY_PWD }}
+        ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.PGP_KEY_PWD }}
       run: ./gradlew closeAndReleaseRepository
