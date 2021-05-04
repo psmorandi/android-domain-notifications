@@ -27,9 +27,17 @@ steps:
     tasks: 'assembleRelease test'
 
 - task: Gradle@2
-  displayName: 'Publish to Bintray'
+  displayName: 'Publish to Maven Central'
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
-    tasks: 'bintrayUpload'
+    tasks: 'publish --no-daemon --no-parallel'
+
+- task: Gradle@2
+  displayName: 'Release library'
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    tasks: 'closeAndReleaseRepository'
