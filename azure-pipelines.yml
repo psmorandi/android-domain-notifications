@@ -15,6 +15,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- group: 'MAVEN_CENTRAL'
+
 steps:
 - bash: echo $ORG_GRADLE_PROJECT_mavenCentralUsername
 - task: Gradle@2
