@@ -1,6 +1,6 @@
 # android-domain-notifications
 
-[![Build Status](https://dev.azure.com/psmorandi/Android%20Domain%20Notifications/_apis/build/status/psmorandi.android-domain-notifications?branchName=master)](https://dev.azure.com/psmorandi/Android%20Domain%20Notifications/_build/latest?definitionId=1&branchName=master) 
+[![Android CI](https://github.com/psmorandi/android-domain-notifications/actions/workflows/ci.yml/badge.svg)](https://github.com/psmorandi/android-domain-notifications/actions/workflows/ci.yml)
 
 About
 -----
