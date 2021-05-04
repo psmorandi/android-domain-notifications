@@ -16,9 +16,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- bash: echo $ORG_GRADLE_PROJECT_mavenCentralUsername
 - task: Gradle@2
   displayName: 'Build and Test'
-  inputs:
+  inputs:    
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
