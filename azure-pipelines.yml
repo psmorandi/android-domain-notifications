@@ -18,10 +18,7 @@ pool:
 variables:
 - group: 'MAVEN_CENTRAL'
 
-steps:
-- bash: echo $ORG_GRADLE_PROJECT_mavenCentralUsername
-  env:
-    ORG_GRADLE_PROJECT_mavenCentralUsername: $(ORG_GRADLE_PROJECT_mavenCentralUsername)
+steps:  
 - task: Gradle@2
   displayName: 'Build and Test'
   inputs:    
@@ -40,7 +37,11 @@ steps:
     gradleOptions: '-Xmx3072m'
     tasks: 'publish --no-daemon --no-parallel'
   env:
-    ORG_GRADLE_PROJECT_mavenCentralUsername: $(ORG_GRADLE_PROJECT_mavenCentralUsername)
+    ORG_GRADLE_PROJECT_mavenCentralUsername: $(mavenCentralUsername)
+    ORG_GRADLE_PROJECT_mavenCentralPassword: $(mavenCentralPassword)
+    ORG_GRADLE_PROJECT_signingInMemoryKey: $(signingInMemoryKey)
+    ORG_GRADLE_PROJECT_signingInMemoryKeyId: $(signingInMemoryKeyId)
+    ORG_GRADLE_PROJECT_signingInMemoryPassword: $(signingInMemoryPassword)
 
 - task: Gradle@2
   displayName: 'Release library'
@@ -49,3 +50,9 @@ steps:
     gradleWrapperFile: 'gradlew'
     gradleOptions: '-Xmx3072m'
     tasks: 'closeAndReleaseRepository'
+  env:
+    ORG_GRADLE_PROJECT_mavenCentralUsername: $(mavenCentralUsername)
+    ORG_GRADLE_PROJECT_mavenCentralPassword: $(mavenCentralPassword)
+    ORG_GRADLE_PROJECT_signingInMemoryKey: $(signingInMemoryKey)
+    ORG_GRADLE_PROJECT_signingInMemoryKeyId: $(signingInMemoryKeyId)
+    ORG_GRADLE_PROJECT_signingInMemoryPassword: $(signingInMemoryPassword)
